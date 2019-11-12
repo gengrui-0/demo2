@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo2.dao.ResourceMapper">
+    <resultMap id="resourceMap" type="com.example.demo2.entity.Resource">
+        <id column="reid" jdbcType="INTEGER" property="reid" />
+        <result column="rename" jdbcType="VARCHAR" property="rename" />
+    </resultMap>
+    <select id="findResourceById" resultType="com.example.demo2.entity.Resource">
+        select reid, rename from resource WHERE reid=#{reid}
+    </select>
+
+    <insert id="addResource" parameterType="com.example.demo2.entity.Resource">
+        insert into resource (reid,rename)values (#{reid},#{rename})
+    </insert>
+
+    <select id="showAllResources" resultMap="resourceMap">
+        select  * from  resource
+    </select>
+
+    <delete id="deleteResouceById" parameterType="int">
+        delete from resource where reid=#{reid}
+    </delete>
+    <update id="updateResouce" parameterType="com.example.demo2.entity.Resource">
+    update resource set resource.rename=#{rename} where resource.reid=#{reid}
+    </update>
+</mapper>
