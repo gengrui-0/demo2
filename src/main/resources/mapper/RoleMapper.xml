@@ -4,7 +4,7 @@
     <resultMap id="roleMap" type="com.example.demo2.entity.Role">
         <id column="roid" jdbcType="INTEGER" property="roid" />
         <result column="roname" jdbcType="VARCHAR" property="roname" />
-        <collection  property="Resource"  ofType="com.example.demo2.entity.Resource">
+        <collection  property="resourceList"  ofType="com.example.demo2.entity.Resource">
             <id property="reid" column="reid" />
             <result property="rename" column="rename" />
         </collection>
@@ -18,8 +18,7 @@
     </insert>
 
     <select id="showAllRoles" resultMap="roleMap">
-        select  * from  role ro binner join  role_resource rr on r.roid=rr.roid inner join reource re
-        on rr.rr_reid=re.reid
+        select  * from  role
     </select>
 
     <delete id="deleteRoleById" parameterType="int">

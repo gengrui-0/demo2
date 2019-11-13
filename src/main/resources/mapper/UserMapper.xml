@@ -20,7 +20,7 @@
 
 
         <select id="showAllUsers"  resultMap="userMap">
-        select  * from user
+        select * from user;
          </select>
 
 

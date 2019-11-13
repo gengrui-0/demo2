@@ -17,3 +17,4 @@ logging:
     com:
       example:
         mapper : debug
+          config=classpath:log.xml:

@@ -5,7 +5,7 @@ import java.util.List;
 public class Role {
     private int roid;
     private  String roname;
-    private List<Resource> ResourceList;
+    private List<Resource> resourceList;
 
     public int getRoid() {
         return roid;
@@ -24,10 +24,10 @@ public class Role {
     }
 
     public List<Resource> getResourceList() {
-        return ResourceList;
+        return resourceList;
     }
 
     public void setResourceList(List<Resource> resourceList) {
-        ResourceList = resourceList;
+        this.resourceList = resourceList;
     }
 }

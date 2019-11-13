@@ -4,19 +4,16 @@ package com.example.demo2.controller;
 import com.example.demo2.entity.User;
 import com.example.demo2.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
-
+@RequestMapping(value = "/role", method = { RequestMethod.GET, RequestMethod.POST })
 @RestController
-@RequestMapping(value = "/user", method = { RequestMethod.GET, RequestMethod.POST })
 public class UserController {
     @Autowired
     private UserService userService;
-
     @RequestMapping("/showallusers")
     @ResponseBody
     public List<User> showAllUsers() {
@@ -24,9 +21,9 @@ public class UserController {
     }
 
 
-    @RequestMapping("/adduser")
+    @RequestMapping("/addrole")
     @ResponseBody
-    public String addUser(User user) {
+    public String addRole(User user) {
         int result= userService.addUser(user);
         if (result >= 1) {
             return "添加成功";
@@ -58,7 +55,9 @@ public class UserController {
         }
     }
     @RequestMapping(value = "/finduserbyid", method = RequestMethod.GET)
-    public User findUserById(int uid) {
+    public User findRoleById(int uid) {
         return  userService.findUserById(uid);
     }
+
+
 }
