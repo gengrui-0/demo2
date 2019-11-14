@@ -11,11 +11,8 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
 
-#showSql
+
 logging:
-  level:
-    com:
-      example:
-        mapper : debug
-          config : classpath:logback.xml
-            path : F:/LOG
+  path: F:/LOG
+  config: classpath:logback.xml
+

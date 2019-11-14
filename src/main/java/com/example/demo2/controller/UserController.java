@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
-@RequestMapping(value = "/role", method = { RequestMethod.GET, RequestMethod.POST })
+@RequestMapping(value = "/user", method = { RequestMethod.GET, RequestMethod.POST })
 @RestController
 public class UserController {
     @Autowired
@@ -17,11 +17,12 @@ public class UserController {
     @RequestMapping("/showallusers")
     @ResponseBody
     public List<User> showAllUsers() {
+        int a=1/0;
         return userService.showAllUsers();
     }
 
 
-    @RequestMapping("/addrole")
+    @RequestMapping("/adduser")
     @ResponseBody
     public String addRole(User user) {
         int result= userService.addUser(user);

@@ -23,8 +23,6 @@
         select * from user;
          </select>
 
-
-
     <delete id="deleteUserById" parameterType="int">
         delete from user where uid=#{uid}
     </delete>
