@@ -1,5 +1,6 @@
 package com.example.demo2.dao;
 
+import com.example.demo2.entity.Resource;
 import com.example.demo2.entity.Role;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
@@ -13,5 +14,5 @@ public interface RoleMapper {
     int deleteRoleById(int roid);
     int updateRole(Role role);
     Role findRoleById(int roid);
-
+    Resource findResourceByRole(int roid);
 }

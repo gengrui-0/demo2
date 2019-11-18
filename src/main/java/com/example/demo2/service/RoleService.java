@@ -1,6 +1,7 @@
 package com.example.demo2.service;
 import com.example.demo2.dao.RoleMapper;
 
+import com.example.demo2.entity.Resource;
 import com.example.demo2.entity.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,5 +26,8 @@ public class RoleService {
     }
     public Role findRoleById(int roid){
         return  roleMapper.findRoleById(roid);
+    }
+    public Resource findResourceByRole(int roid){
+        return roleMapper.findResourceByRole(roid);
     }
 }

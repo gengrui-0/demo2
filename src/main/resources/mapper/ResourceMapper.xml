@@ -23,4 +23,8 @@
     <update id="updateResouce" parameterType="com.example.demo2.entity.Resource">
     update resource set resource.rename=#{rename} where resource.reid=#{reid}
     </update>
+    <select id="findUserByResource" resultMap="resourceMap">
+    select u.* from user u, role r,user_role r1,role_resource r2 where r1.uid=u.uid and
+    r2.roid=r.roid and r2.reid=#{reid} group by u.uid
+    </select>
 </mapper>

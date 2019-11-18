@@ -27,4 +27,7 @@
     <update id="updateRole" parameterType="com.example.demo2.entity.Role">
     update role set role.roname=#{roname} where role.roid=#{roid}
     </update>
+    <select id="findResourceByRole" resultMap="roleMap">
+        select r.* from  resource r,role_resource a where r.reid = a.reid and a.roid = #{roid}
+    </select>
 </mapper>

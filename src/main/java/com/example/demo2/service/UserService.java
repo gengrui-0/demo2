@@ -1,4 +1,6 @@
 package com.example.demo2.service;
+import com.example.demo2.entity.Resource;
+import com.example.demo2.entity.Role;
 import com.example.demo2.entity.User;
 import com.example.demo2.dao.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,5 +26,11 @@ public class UserService {
     }
     public User findUserById(int uid){
         return userMapper.findUserById(uid);
+    }
+    public Role findRoleByUid(int uid){
+        return userMapper.findRoleByUid(uid);
+    }
+    public Resource findResourceByUser(int uid){
+        return userMapper.findResouceByUser(uid);
     }
 }

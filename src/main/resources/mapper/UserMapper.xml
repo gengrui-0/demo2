@@ -8,7 +8,7 @@
         <collection  property="roleList"  ofType="com.example.demo2.entity.Role">
         <id property="roid" column="roid" />
         <result property="roname" column="roname" />
-    </collection>
+        </collection>
     </resultMap>
     <select id="findUserById" resultMap="userMap">
         select uid, uname, upassword from user WHERE uid=#{uid}
@@ -17,7 +17,6 @@
     <insert id="addUser" parameterType="com.example.demo2.entity.User">
         insert into user (uid,uname,upassword)values (#{uid},#{uname},#{upassword})
     </insert>
-
 
         <select id="showAllUsers"  resultMap="userMap">
         select * from user;
@@ -29,4 +28,11 @@
     <update id="updateUser" parameterType="com.example.demo2.entity.User">
     update user set user.uname=#{uname},user.upassword=#{upassword} where user.uid=#{uid}
     </update>
+    <select id="findRoleByUid" resultMap="userMap">
+       select r.* from role r,user_role a where r.roid=a.roid and a.uid = #{uid}
+    </select>
+    <select id="findResouceByUser" resultMap="userMap">
+    select re.* from resource re, role r,user_role r1,role_resource r2 where r2.reid=re.reid and
+    r1.roid=r.roid and r1.uid=#{uid} group by re.reid
+    </select>
 </mapper>

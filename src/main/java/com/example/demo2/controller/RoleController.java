@@ -1,12 +1,10 @@
 package com.example.demo2.controller;
 
+import com.example.demo2.entity.Resource;
 import com.example.demo2.entity.Role;
 import com.example.demo2.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,16 +14,16 @@ public class RoleController {
     @Autowired
     private RoleService roleService;
 
-    @RequestMapping("/showallroles")
+    @RequestMapping("/list")
     @ResponseBody
     public List<Role> showAllUsers() {
         return roleService.showAllRoles();
     }
 
 
-    @RequestMapping("/addrole")
+    @RequestMapping("/add")
     @ResponseBody
-    public String addRole(Role role) {
+    public String addRole(@RequestBody Role role) {
        int result= roleService.addRole(role);
         if (result >= 1) {
             return "添加成功";
@@ -36,8 +34,8 @@ public class RoleController {
 
 
 
-    @RequestMapping(value = "/deleterolebyid", method = RequestMethod.GET)
-    public String delete(int roid) {
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    public String delete(@RequestBody int roid) {
         int result = roleService.deleteRoleById(roid);
         if (result >= 1) {
             return "删除成功";
@@ -47,8 +45,8 @@ public class RoleController {
     }
 
 
-    @RequestMapping(value = "/updaterole", method = RequestMethod.GET)
-    public String update(Role role) {
+    @RequestMapping(value = "/update", method = RequestMethod.GET)
+    public String update(@RequestBody Role role) {
         int result = roleService.updateUser(role);
         if (result >= 1) {
             return "修改成功";
@@ -56,8 +54,13 @@ public class RoleController {
             return "修改失败";
         }
     }
-    @RequestMapping(value = "/findrolebyid", method = RequestMethod.GET)
-    public Role findRoleById(int roid) {
+    @RequestMapping(value = "/findrole", method = RequestMethod.GET)
+    public Role findRoleById(@RequestBody int roid) {
         return  roleService.findRoleById(roid);
+    }
+
+    @RequestMapping(value = "/findResource", method = RequestMethod.GET)
+    public Resource findResourceByRole(@RequestBody int roid) {
+        return  roleService.findResourceByRole(roid);
     }
 }
