@@ -7,7 +7,7 @@
     </resultMap>
     <select id="findResourceById" resultType="com.example.demo2.entity.Resource">
         select reid, rename from resource WHERE reid=#{reid}
-    </select>
+    </select>/
 
     <insert id="addResource" parameterType="com.example.demo2.entity.Resource">
         insert into resource (reid,rename)values (#{reid},#{rename})

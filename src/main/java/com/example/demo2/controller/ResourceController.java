@@ -62,6 +62,7 @@ public class ResourceController {
 
     @RequestMapping(value = "/finduser", method = RequestMethod.GET)
     public User findUserByResouce(@RequestBody int reid) {
+
         return  resourceService.findUserByResource(reid);
     }
 }

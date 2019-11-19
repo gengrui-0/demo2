@@ -27,10 +27,10 @@ public class UserService {
     public User findUserById(int uid){
         return userMapper.findUserById(uid);
     }
-    public Role findRoleByUid(int uid){
+    public List<Role> findRoleByUid(int uid){
         return userMapper.findRoleByUid(uid);
     }
-    public Resource findResourceByUser(int uid){
+    public List<Resource> findResourceByUser(int uid){
         return userMapper.findResouceByUser(uid);
     }
 }

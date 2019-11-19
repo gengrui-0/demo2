@@ -12,7 +12,4 @@ mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
 
 
-logging:
-  path: F:/LOG
-  config: classpath:logback.xml
 

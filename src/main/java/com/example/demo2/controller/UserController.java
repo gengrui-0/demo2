@@ -18,15 +18,14 @@ public class UserController {
     private UserService userService;
     @RequestMapping("/list")
 
-    public List<User> showAllUsers() {
-
+    public List<User> showallusers() {
         return userService.showAllUsers();
     }
 
 
     @RequestMapping("/add")
 
-    public String addRole(@RequestBody User user) {
+    public String addRole( User user) {
         int result= userService.addUser(user);
         if (result >= 1) {
             return "添加成功";
@@ -38,7 +37,7 @@ public class UserController {
 
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
-    public String delete(@RequestBody int uid) {
+    public String delete( int uid) {
         int result = userService.deleteUserById(uid);
         if (result >= 1) {
             return "删除成功";
@@ -49,7 +48,7 @@ public class UserController {
 
 
     @RequestMapping(value = "/update", method = RequestMethod.GET)
-    public String update(@RequestBody User user) {
+    public String update( User user) {
         int result = userService.updateUser(user);
         if (result >= 1) {
             return "修改成功";
@@ -59,17 +58,17 @@ public class UserController {
     }
 
     @RequestMapping(value = "/finduser", method = RequestMethod.GET)
-    public User findUserById(@RequestBody int uid) {
+    public User findUserById( int uid) {
         return  userService.findUserById(uid);
     }
 
     @RequestMapping(value = "/findrole", method = RequestMethod.GET)
-    public Role findRoleByUid(@RequestBody int uid) {
+    public List<Role> findRoleByUid( int uid) {
         return  userService.findRoleByUid(uid);
     }
 
     @RequestMapping(value = "/findresource", method = RequestMethod.GET)
-    public Resource findResourceByUser(@RequestBody int uid) {
+    public List<Resource> findResourceByUser( int uid) {
         return  userService.findResourceByUser(uid);
     }
 }
